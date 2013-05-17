@@ -22,3 +22,9 @@ function hg_current_branch() {
     echo hg:$(hg branch)
   fi
 }
+
+function hg_current_bookmark() {
+  if [ -d .hg ]; then
+    echo hg:$(hg bookmark)
+  fi
+}

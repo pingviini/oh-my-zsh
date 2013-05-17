@@ -1,18 +1,18 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+ZSH=$HOME/.mydotfiles/zsh/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="lambda"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Comment this out to disable bi-weekly auto-update checks
 # DISABLE_AUTO_UPDATE="true"
@@ -40,8 +40,23 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git virtualenv virtualenvwrapper mercurial python coffee pip vi-mode buildout)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+export PATH=$PATH:/usr/local/bin
+export WORKON_HOME=$HOME/Virtualenvs
+export PROJECT_HOME=$HOME/workspace
+export VIRTUALENV_USE_DISTRIBUTE=true
+source /usr/local/bin/virtualenvwrapper.sh
+
+# if [ -f ~/.rvm/scripts/rvm ]; then
+#     PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+#     [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+#     rvm use 1.9.2
+# fi
+
+bindkey -v
+# bindkey '\e[3~' delete-char
+bindkey '^R' history-incremental-search-backward
